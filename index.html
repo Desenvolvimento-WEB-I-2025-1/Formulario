@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro</h1>
+        <form id="cadastroForm" novalidate>
+            <!-- Seção 1: Informações Pessoais -->
+            <section class="form-section">
+                <h2><i class="fas fa-user-circle"></i> Informações Pessoais</h2>
+                
+                <div class="form-group">
+                    <label for="nomeCompleto">Nome Completo</label>
+                    <div class="input-container">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="error-message" id="nomeCompleto-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataNascimento">Data de Nascimento</label>
+                    <div class="input-container">
+                        <i class="fas fa-calendar-alt input-icon"></i>
+                        <input type="date" id="dataNascimento" name="dataNascimento" required>
+                    </div>
+                    <div class="error-message" id="dataNascimento-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <div class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">Digite apenas os números ou com a formatação: 000.000.000-00</span>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-id-card input-icon"></i>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="error-message" id="cpf-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefoneFixo">Telefone Fixo (com DDD)</label>
+                    <div class="input-container">
+                        <i class="fas fa-phone input-icon"></i>
+                        <input type="text" id="telefoneFixo" name="telefoneFixo" placeholder="(00) 0000-0000" required>
+                    </div>
+                    <div class="error-message" id="telefoneFixo-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="celular">Celular (com DDD)</label>
+                    <div class="input-container">
+                        <i class="fas fa-mobile-alt input-icon"></i>
+                        <input type="text" id="celular" name="celular" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="error-message" id="celular-error"></div>
+                </div>
+            </section>
+            
+            <!-- Seção 2: Informações Complementares (para menores de idade) -->
+            <section class="form-section" id="secaoMenorIdade" style="display: none;">
+                <h2><i class="fas fa-child"></i> Informações Complementares</h2>
+                <p class="info-text">Como você é menor de idade, precisamos das informações abaixo:</p>
+                
+                <div class="form-group">
+                    <label for="nomePai">Nome do Pai</label>
+                    <div class="input-container">
+                        <i class="fas fa-male input-icon"></i>
+                        <input type="text" id="nomePai" name="nomePai" placeholder="Nome completo do pai">
+                    </div>
+                    <div class="error-message" id="nomePai-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nomeMae">Nome da Mãe</label>
+                    <div class="input-container">
+                        <i class="fas fa-female input-icon"></i>
+                        <input type="text" id="nomeMae" name="nomeMae" placeholder="Nome completo da mãe">
+                    </div>
+                    <div class="error-message" id="nomeMae-error"></div>
+                </div>
+            </section>
+            
+            <!-- Seção 3: Endereço -->
+            <section class="form-section">
+                <h2><i class="fas fa-map-marker-alt"></i> Endereço</h2>
+                
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <div class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">Digite apenas os números ou com a formatação: 00000-000. Ao sair do campo, os dados de endereço serão preenchidos automaticamente.</span>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-map-pin input-icon"></i>
+                        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                    </div>
+                    <div class="error-message" id="cep-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <div class="input-container">
+                        <i class="fas fa-road input-icon"></i>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida, etc." required>
+                    </div>
+                    <div class="error-message" id="endereco-error"></div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group form-group-half">
+                        <label for="numero">Número</label>
+                        <div class="input-container">
+                            <i class="fas fa-hashtag input-icon"></i>
+                            <input type="text" id="numero" name="numero" placeholder="Nº" required>
+                        </div>
+                        <div class="error-message" id="numero-error"></div>
+                    </div>
+                    
+                    <div class="form-group form-group-half">
+                        <label for="complemento">Complemento</label>
+                        <div class="input-container">
+                            <i class="fas fa-info-circle input-icon"></i>
+                            <input type="text" id="complemento" name="complemento" placeholder="Apto, Bloco, etc.">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group form-group-half">
+                        <label for="cidade">Cidade</label>
+                        <div class="input-container">
+                            <i class="fas fa-city input-icon"></i>
+                            <input type="text" id="cidade" name="cidade" placeholder="Sua cidade" required>
+                        </div>
+                        <div class="error-message" id="cidade-error"></div>
+                    </div>
+                    
+                    <div class="form-group form-group-half">
+                        <label for="estado">Estado</label>
+                        <div class="input-container">
+                            <i class="fas fa-map input-icon"></i>
+                            <select id="estado" name="estado" required>
+                                <option value="">Selecione o estado</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                        <div class="error-message" id="estado-error"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção 4: Informações da Conta -->
+            <section class="form-section">
+                <h2><i class="fas fa-user-lock"></i> Informações da Conta</h2>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <div class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">A senha deve ter no mínimo 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.</span>
+                    </div>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="senha" name="senha" placeholder="Mínimo de 8 caracteres" required>
+                    </div>
+                    <div class="error-message" id="senha-error"></div>
+                    <div class="password-strength" id="senha-strength"></div>
+                    <div class="password-strength-label" id="senha-strength-text">Força da senha</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Digite a senha novamente" required>
+                    </div>
+                    <div class="error-message" id="confirmarSenha-error"></div>
+                </div>
+            </section>
+            
+            <div class="form-actions">
+                <button type="submit" id="submitBtn"><i class="fas fa-check-circle"></i> Cadastrar</button>
+                <button type="reset" id="resetBtn"><i class="fas fa-undo"></i> Limpar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Contêiner para as notificações Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Modal de sucesso -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Cadastro realizado!</h3>
+                <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Seu cadastro foi realizado com sucesso! Em breve você receberá um e-mail de confirmação.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="modalConfirm">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="mascaras.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
